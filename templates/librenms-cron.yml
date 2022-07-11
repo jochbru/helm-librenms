@@ -13,9 +13,9 @@ spec:
             checksum/config: {{ include "librenms.configChecksum" . }}
         spec:
           volumes:
-          - name: phpconfig
+          - name: files
             configMap:
-              name: {{ .Release.Name }}-phpconfig
+              name: {{ .Release.Name }}-files
           containers:
           - name: snmp-scanner
             image: '{{ .Values.librenms.image.repository }}:{{ .Values.librenms.image.tag }}'
@@ -24,7 +24,7 @@ spec:
             - configMapRef:
                 name: {{ .Release.Name }}
             volumeMounts:
-            - name: phpconfig
+            - name: files
               mountPath: /opt/librenms/config.d/custom.php
               subPath: custom.php
               readOnly: true
