@@ -1,6 +1,6 @@
-# NetBox
+# LibreNMS
 
-[NetBox](https://netbox.readthedocs.io/) is an IP address management (IPAM) and
+[LibreNMS](https://docs.librenms.org/) is an IP address management (IPAM) and
 data center infrastructure management (DCIM) tool.
 
 ## TL;DR
