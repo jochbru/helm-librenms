@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-rrdcached
+spec:
+  strategy: 
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}
+      app.kubernetes.io/instance: rrdcached
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ .Release.Name }}
+        app.kubernetes.io/instance: rrdcached
+    spec:
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      {{- if .Values.librenms.rrdcached.persistence.enabled }}
+      - name: db
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-rrdcached
+      - name: journal
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-rrdcached-journal
+      {{end}}
+      - name: mysql
+        secret:
+          secretName: {{ .Release.Name }}-mysql
+          optional: false # default setting; "mysecret" must exist
+      
+      containers:
+      - name: rrdcached
+        image: 'crazymax/rrdcached:1.7.2-r3'
+        imagePullPolicy: Always
+        {{- if .Values.librenms.rrdcached.persistence.enabled }}
+        volumeMounts:
+        - name: db
+          mountPath: /data/db
+        - name: journal
+          mountPath: /data/journal
+        - name: mysql
+          mountPath: "/opt/mysql/"
+          readOnly: true
+        {{end}}
+        env:
+        - name: TZ
+          value: "Europe/Amsterdam"
+        - name: WRITE_JITTER
+          value: '1800'
+        - name: WRITE_TIMEOUT
+          value: '1800'
+        livenessProbe:
+          tcpSocket:
+            port: 42217
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        {{- if .Values.librenms.rrdcached.resources }}
+        resources: {{ toYaml .Values.librenms.rrdcached.resources | nindent 10 }}
+        {{- end }}

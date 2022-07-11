@@ -1,0 +1,63 @@
+librenms:
+  image:
+    repository: librenms/librenms
+    tag: 21.11.0
+  timezone: UTC
+  configuration: |-
+    $config['distributed_poller_group']          = '0';
+    $config['distributed_poller']                = true;
+  appkey: base64:Qh1eBwRfpgNHWByDDqhaX0I/0hnE/VDRiLHLnjwrZRw=
+  frontend:
+    replicas: 1
+    readinessProbe:
+      httpGet:
+        path: /login
+        port: 8000
+      initialDelaySeconds: 30
+      periodSeconds: 60
+      timeoutSeconds: 10
+    resources:
+      requests:
+        cpu: 50m
+        memory: 150M
+  poller:
+    replicas: 2
+    resources:
+      requests:
+        cpu: 500m
+        memory: 200M
+  snmp_scanner:
+    enabled: true
+    cron: 15 * * * *
+    resources:
+      requests:
+        cpu: 500m
+        memory: 200M
+  rrdcached:
+    persistence:
+      enabled: true
+      journal:
+        size: 20Gi
+      rrdcached:
+        size: 100Gi
+    resources:
+      requests:
+        cpu: 100m
+        memory: 500M
+
+mysql:
+  enabled: true
+  auth:
+    username: librenms
+    database: librenms
+
+redis:
+  enabled: true
+  auth:
+    enabled: false
+    sentinel: false
+
+  sentinel:
+    enabled: false
+
+  architecture: standalone
