@@ -3,7 +3,7 @@ entries:
   helm-librenms:
   - apiVersion: v2
     appVersion: 21.11.0
-    created: "2022-07-11T15:32:31.486505357+02:00"
+    created: "2022-11-28T18:20:45.2971531+01:00"
     dependencies:
     - name: redis
       repository: https://charts.bitnami.com/bitnami
@@ -17,14 +17,14 @@ entries:
     name: helm-librenms
     type: application
     urls:
-    - repository/helm-librenms-0.1.0.tgz
+    - https://thechef23.github.io/repository/helm-librenms-0.1.0.tgz
     version: 0.1.0
   mysql:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 8.0.29
-    created: "2022-07-11T15:32:31.460348019+02:00"
+    created: "2022-11-28T18:20:45.271519053+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -51,14 +51,14 @@ entries:
     - https://github.com/bitnami/bitnami-docker-mysql
     - https://mysql.com
     urls:
-    - charts/mysql-9.2.0.tgz
+    - https://thechef23.github.io/charts/mysql-9.2.0.tgz
     version: 9.2.0
   redis:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 6.2.7
-    created: "2022-07-11T15:32:31.469581552+02:00"
+    created: "2022-11-28T18:20:45.28171348+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -84,6 +84,17 @@ entries:
     sources:
     - https://github.com/bitnami/bitnami-docker-redis
     urls:
-    - charts/redis-16.9.11.tgz
+    - https://thechef23.github.io/charts/redis-16.9.11.tgz
     version: 16.9.11
-generated: "2022-07-11T15:32:31.45434107+02:00"
+  securely-proxy:
+  - apiVersion: v2
+    created: "2022-11-28T18:20:45.297691739+01:00"
+    description: A chart to be used to deploy an nginx proxy with owasp crs and seurely
+      sidecars
+    digest: 90c8a8d140aaebb9ddfc0a76334fadc49420c118d8049adb6011de0c45da1ede
+    name: securely-proxy
+    type: application
+    urls:
+    - https://thechef23.github.io/repository/securely-proxy-0.1.2.tgz
+    version: 0.1.2
+generated: "2022-11-28T18:20:45.257536672+01:00"
