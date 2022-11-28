@@ -6,7 +6,7 @@ data center infrastructure management (DCIM) tool.
 ## TL;DR
 
 ```shell
-$ helm repo add thechef23-librenms https://thechef23.github.io/helm-librenms/
+$ helm repo add thechef23 https://thechef23.github.io/helm-repo/
 $ helm install my-release thechef23-librenms/librenms
 ```
 
@@ -20,7 +20,7 @@ $ helm install my-release thechef23-librenms/librenms
 To install the chart with the release name `my-release` and default configuration:
 
 ```shell
-$ helm repo add thechef23-librenms https://thechef23.github.io/helm-librenms/
+$ helm repo add thechef23 https://thechef23.github.io/helm-repo/
 $ helm install my-release thechef23-librenms/librenms
 ```
 
