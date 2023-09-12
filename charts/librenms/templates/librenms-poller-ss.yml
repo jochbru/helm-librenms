@@ -52,7 +52,7 @@ spec:
             name: {{ .Release.Name }}
         volumeMounts:
         - name: files
-          mountPath: /opt/librenms/config.d/custom.php
+          mountPath: /data/config/custom.php
           subPath: custom.php
           readOnly: true
         - name: env-volume

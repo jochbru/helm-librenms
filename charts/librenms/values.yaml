@@ -91,4 +91,7 @@ redis:
   sentinel:
     enabled: false
 
+  master:
+    disableCommands: []
+
   architecture: standalone
