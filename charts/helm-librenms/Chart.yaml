@@ -1,5 +1,5 @@
 apiVersion: v2
-name: helm-librenms
+name: librenms
 description: LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system.
 
 type: application
