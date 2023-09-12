@@ -3,8 +3,8 @@ name: helm-librenms
 description: LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system.
 
 type: application
-version: 1.0.0
-appVersion: "21.11.0"
+version: 2.0.0
+appVersion: "23.8.2"
 
 dependencies:
 - name: redis
