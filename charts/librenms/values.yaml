@@ -63,7 +63,7 @@ librenms:
   rrdcached:
     image:
       repository: crazymax/rrdcached
-      tag: 1.7.2-r3
+      tag: 1.8.0
     persistence:
       enabled: true
       journal:
