@@ -61,6 +61,9 @@ librenms:
   # in this LibreNMS helm chart. See the rrdcached documentation for more 
   # information: https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html
   rrdcached:
+    image:
+      repository: crazymax/rrdcached
+      tag: 1.8.0
     persistence:
       enabled: true
       journal:
