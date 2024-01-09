@@ -34,5 +34,9 @@ spec:
             {{- if .Values.librenms.snmp_scanner.resources }}
             resources: {{ toYaml .Values.librenms.snmp_scanner.resources | nindent 14 }}
             {{- end }}
+            {{- with .Values.librenms.snmp_scanner.extraEnvs }}
+            env:
+            {{- toYaml . | nindent 8 }}
+            {{- end }}
           restartPolicy: OnFailure
 {{ end }}

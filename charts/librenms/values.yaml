@@ -57,6 +57,12 @@ librenms:
       requests:
         cpu: 500m
         memory: 200M
+    # Extra environment variable for LibreNMS SNMP scanner container
+    extraEnvs: {}
+
+  # Extra environment variable for LibreNMS container
+  extraEnvs: {}
+
   # RRD cached is the tool that allows for distributed polling and is mandatory
   # in this LibreNMS helm chart. See the rrdcached documentation for more 
   # information: https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html
@@ -74,6 +80,9 @@ librenms:
       requests:
         cpu: 100m
         memory: 500M
+
+    # Extra environment variable for RRDCACHED container
+    extraEnvs: {}
 
 # Configuration for MySQL dependency chart by Bitnami. See their chart for 
 # more information: https://github.com/bitnami/charts/tree/master/bitnami/mysql

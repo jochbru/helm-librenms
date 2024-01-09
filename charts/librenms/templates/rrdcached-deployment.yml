@@ -53,6 +53,9 @@ spec:
           value: '1800'
         - name: WRITE_TIMEOUT
           value: '1800'
+        {{- with .Values.librenms.rrdcached.extraEnvs }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         livenessProbe:
           tcpSocket:
             port: 42217
