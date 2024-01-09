@@ -44,6 +44,12 @@ librenms:
       requests:
         cpu: 500m
         memory: 200M
+    readinessProbe:
+      exec:
+        command: ["nc", "-z", "-v", "-w1", "{{ .Release.Name }}-mysql", "3306"]
+      initialDelaySeconds: 0
+      periodSeconds: 1
+      failureThreshold: 3
 
   # SNMP network discovery scanner cron job. This job is optional and only use
   # when having snmp network discovery enabled. For this to work either set the 
