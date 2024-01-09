@@ -67,8 +67,9 @@ spec:
         {{- if .Values.librenms.poller.resources }}
         resources: {{ toYaml .Values.librenms.poller.resources | nindent 10 }}
         {{- end }}
-        {{- if .Values.librenms.poller.readinessProbe }}
         readinessProbe: 
-          {{ toYaml .Values.librenms.poller.readinessProbe | nindent 10 }}
-        {{- end }}
-  
+          exec:
+            command: ["nc", "-z", "-v", "-w1", "{{ .Release.Name }}-mysql", "3306"]
+          initialDelaySeconds: 0
+          periodSeconds: 1
+          failureThreshold: 3
