@@ -80,6 +80,18 @@ librenms:
       requests:
         cpu: 100m
         memory: 500M
+    livenessProbe:
+      tcpSocket:
+        port: 42217
+      initialDelaySeconds: 15
+      periodSeconds: 20
+    envs:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: WRITE_JITTER
+      value: '1800'
+    - name: WRITE_TIMEOUT
+      value: '1800'
 
     # Extra environment variable for RRDCACHED container
     extraEnvs: {}

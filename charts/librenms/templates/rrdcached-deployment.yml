@@ -47,20 +47,16 @@ spec:
           readOnly: true
         {{end}}
         env:
-        - name: TZ
-          value: "Europe/Amsterdam"
-        - name: WRITE_JITTER
-          value: '1800'
-        - name: WRITE_TIMEOUT
-          value: '1800'
+        {{- with .Values.librenms.rrdcached.envs }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         {{- with .Values.librenms.rrdcached.extraEnvs }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
+        {{- with .Values.librenms.rrdcached.livenessProbe }}
         livenessProbe:
-          tcpSocket:
-            port: 42217
-          initialDelaySeconds: 15
-          periodSeconds: 20
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         {{- if .Values.librenms.rrdcached.resources }}
         resources: {{ toYaml .Values.librenms.rrdcached.resources | nindent 10 }}
         {{- end }}
