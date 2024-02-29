@@ -6,7 +6,7 @@
 librenms:
   image:
     repository: librenms/librenms
-    tag: 23.11.0
+    tag: 24.2.0
 
   # Timezone used by librenms for communication with RRD cached
   timezone: UTC
