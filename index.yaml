@@ -57,6 +57,24 @@ entries:
     version: 0.1.0
   librenms:
   - apiVersion: v2
+    appVersion: 24.5.0
+    created: "2024-06-20T07:56:35.29700464Z"
+    dependencies:
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~19.5.0
+    - name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~10.3.0
+    description: LibreNMS is an autodiscovering PHP/MySQL-based network monitoring
+      system.
+    digest: 72ea0609a5d015ac1fd90c9ccc7b915e0e9283098aa698811aab2704d608cda1
+    name: librenms
+    type: application
+    urls:
+    - https://github.com/TheChef23/helm-librenms/releases/download/librenms-3.8.0/librenms-3.8.0.tgz
+    version: 3.8.0
+  - apiVersion: v2
     appVersion: 24.3.0
     created: "2024-04-23T10:15:30.391313102Z"
     dependencies:
@@ -350,4 +368,4 @@ entries:
     urls:
     - https://thechef23.github.io/repository/securely-proxy-0.1.2.tgz
     version: 0.1.2
-generated: "2024-04-23T10:15:30.391358057Z"
+generated: "2024-06-20T07:56:35.297110207Z"
