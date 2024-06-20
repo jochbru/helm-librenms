@@ -12,6 +12,6 @@ dependencies:
   repository: "https://charts.bitnami.com/bitnami"
   when: redis.enabled == true
 - name: mysql
-  version: "~10.1.0"
+  version: "~10.3.0"
   repository: "https://charts.bitnami.com/bitnami"
   when: mysql.enabled == true
