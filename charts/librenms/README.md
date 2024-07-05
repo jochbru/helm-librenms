@@ -1,5 +1,8 @@
 # LibreNMS
 
+THIS REPO HAS BEEN ARCHIED AND HAS BEEN SUPERSEDED BY:
+https://github.com/librenms/helm-charts
+
 [LibreNMS](https://docs.librenms.org/) is an IP address management (IPAM) and
 data center infrastructure management (DCIM) tool.
 
